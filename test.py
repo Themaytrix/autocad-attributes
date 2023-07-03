@@ -9,7 +9,8 @@ circuit = []
 
 for entity in acad.ActiveDocument.ModelSpace:
     name = entity.Entityname
-
+    
+    # matching default autocad block reference
     if name == "AcDbBlockReference":
         HasAttributes = entity.HasAttributes
 
@@ -20,7 +21,7 @@ for entity in acad.ActiveDocument.ModelSpace:
 
 circuits = list(set(circuit))
 sorted_circuits = sorted(circuits, reverse=False)
-print(sorted_circuits)
+
 
 with open("f6.csv", "w") as f:
     writer = csv.writer(f,delimiter='\n')
