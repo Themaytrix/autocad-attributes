@@ -1,0 +1,4 @@
+comtypes==1.1.14
+pyautocad==0.2.0
+pywin32==306
+
