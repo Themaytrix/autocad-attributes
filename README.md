@@ -7,7 +7,7 @@ This script uses IDispatch interface from wincom32 in creating an Autocad COM ob
 
 After the object has been created we access the active document using autocad's VBA (ActiveDocument).
 
-We then get the `ActiveModelSpace` [Autocad Document Object](https://help.autodesk.com/view/ACD/2023/ENU/?guid=GUID-9216BFCD-D358-4FC6-B631-B52E6693D242)
+We then get the `ActiveModelSpace` - Checkout [Autocad Document Object](https://help.autodesk.com/view/ACD/2023/ENU/?guid=GUID-9216BFCD-D358-4FC6-B631-B52E6693D242)
 
 Then we access the access the `EntityName` and `GetAttributes()`
 
