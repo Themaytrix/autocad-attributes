@@ -1,11 +1,12 @@
-from pyautocad import Autocad
 
 import win32com.client
 import csv
 
-acad = win32com.client.Dispatch("AutoCAD.Application")
 
-circuit = []
+# using the IDispatch interface of win32com to access the autocad com object
+acad = win32com.client.Dispatch("AutoCAD.Application") 
+
+circuits = []
 
 for entity in acad.ActiveDocument.ModelSpace:
     name = entity.Entityname
@@ -16,13 +17,14 @@ for entity in acad.ActiveDocument.ModelSpace:
 
         if HasAttributes:
             for attrib in list(entity.GetAttributes()):
-                circuit.append(attrib.TextString)
+                circuits.append(attrib.TextString)
 
 
-circuits = list(set(circuit))
+circuits = list(set(circuits))
 sorted_circuits = sorted(circuits, reverse=False)
 
+writer_path = "f6.csv" 
 
-with open("f6.csv", "w") as f:
+with open(writer_path, "w") as f:
     writer = csv.writer(f,delimiter='\n')
-    writer.writerows(sorted_circuits)
+    writer.writerow(sorted_circuits)
